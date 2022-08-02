@@ -1,26 +1,26 @@
 {
-  "name": "comandogoogle",
+  "name": "comandorio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Polular dados",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index"
+  "repository": "git@github.com:computeibrasil/comando.git",
+  "author": "Gabriel Moura <gabriel.blx32@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "sucrase": "^3.25.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "dev": "nodemon src/index.js",
+    "start": "node ./dist",
+    "prod": "npm run build && npm run start"
+  },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "moment": "^2.29.4",
-    "moment-timezone": "^0.5.32",
-    "node-cron": "^2.0.3",
-    "node-schedule": "^2.0.0",
-    "nodemon": "^2.0.19",
+    "node-cron": "^3.0.1",
     "pg": "^8.7.3",
-    "request": "^2.88.2",
-    "sequelize": "^6.21.3",
-    "sequelize-cli": "^6.2.0"
+    "sequelize": "^6.21.3"
   }
 }
