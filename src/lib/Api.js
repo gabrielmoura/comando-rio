@@ -27,6 +27,9 @@ module.exports = class Api {
             }
         }).then(r => {
             this.token = r.data;
+            if(process.env.NODE_ENV!=="production"){
+                console.log(r);
+            }
         }).catch(err => {
             console.error(err);
         });
@@ -46,6 +49,9 @@ module.exports = class Api {
                     "inicio": moment(this.dataBusca).subtract(29, 'days').format('YYYY-MM-DD 00:00:00.0'),
                 }
             }).then(r => {
+                if(process.env.NODE_ENV!=="production"){
+                    console.log(r);
+                }
                     func(r.data);
             }).catch(err => {
                 console.error(err);
