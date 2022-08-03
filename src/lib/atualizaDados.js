@@ -1,7 +1,7 @@
 import {pops} from "../lib/normalize";
 import Evento from "../db/evento";
 
-export default async ({data}) => {
+export default async (data) => {
     console.log(data);
     Evento.upsert({
         id: data.id,
