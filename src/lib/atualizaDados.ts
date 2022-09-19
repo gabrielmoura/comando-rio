@@ -1,11 +1,11 @@
-import {pops} from "../lib/normalize";
+import {pops} from "./normalize";
 import Evento from "../db/evento";
 
 export default async (data) => {
-    if(process.env.NODE_ENV!=="production"){
+    if (process.env.NODE_ENV !== "production") {
         console.log(data);
     }
-    
+
     Evento.upsert({
         id: data.id,
         pop_id: data.pop_id,

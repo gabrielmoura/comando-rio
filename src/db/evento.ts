@@ -28,4 +28,4 @@ const Evento = database.define('evento',
 
 Evento.sync();
 
-module.exports = Evento;
+export default Evento;

@@ -4,10 +4,15 @@
  */
 
 const axios = require('axios');
-import {subDays, format, hoursToSeconds} from 'date-fns'
-import {setToken, hasToken, getToken} from '../lib/cache'
+import {format, hoursToSeconds, subDays} from 'date-fns'
+import {getToken, hasToken, setToken} from './cache'
 
-module.exports = class Api {
+export default class Api {
+    private readonly baseURL: string;
+    private username: string;
+    private password: string;
+    private readonly dataBusca: Date | number;
+    private token: string | null;
 
     constructor(username, password, baseURL = 'http://ws.status.rio') {
         this.baseURL = baseURL;

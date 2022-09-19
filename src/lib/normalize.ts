@@ -1,4 +1,4 @@
-function pops(params) {
+export function pops(params) {
     const popx = [
         'vazio',
         'Acidente/enguiço sem vítima',
@@ -49,5 +49,3 @@ function pops(params) {
         return popx[0];
     }
 }
-
-module.exports = {pops}
