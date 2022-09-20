@@ -423,10 +423,10 @@ standard-as-callback@^2.1.0:
   resolved "https://registry.yarnpkg.com/standard-as-callback/-/standard-as-callback-2.1.0.tgz#8953fc05359868a77b5b9739a665c5977bb7df45"
   integrity sha512-qoRRSyROncaz1z0mvYqIE4lCd9p2R90i6GxW3uZv5ucSu8tU7B5HXUP1gG8pVZsYNVaXjk8ClXHPttLyxAL48A==
 
-sucrase@^3.25.0:
-  version "3.25.0"
-  resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.25.0.tgz#6dffa34e614b3347877507a4380cc4f022b7b7aa"
-  integrity sha512-WxTtwEYXSmZArPGStGBicyRsg5TBEFhT5b7N+tF+zauImP0Acy+CoUK0/byJ8JNPK/5lbpWIVuFagI4+0l85QQ==
+sucrase@^3.27.0:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/sucrase/-/sucrase-3.27.0.tgz#32b8e8735ae0e78c6e1e917d2dd61ecad69e5604"
+  integrity sha512-IjpEeFzOWCGrB/e2DnPawkFajW6ONFFgs+lQT1+Ts5Z5ZM9gPnxpDh0q8tu7HVLt6IfRiUTbSsjfhqjHOP/cwQ==
   dependencies:
     commander "^4.0.0"
     glob "7.1.6"

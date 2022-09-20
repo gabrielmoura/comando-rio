@@ -7,10 +7,10 @@
   "author": "Gabriel Moura <gabriel.blx32@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "sucrase": "^3.25.0"
+    "sucrase": "^3.27.0"
   },
   "scripts": {
-    "build": "sucrase ./src -d ./dist --transforms imports",
+    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "dev": "nodemon src/index.js",
     "start": "node ./dist",
     "prod": "npm run build && npm run start"

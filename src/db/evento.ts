@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const database = require('./index');
+import sequelize from './index'
 
-const Evento = database.define('evento',
+const Evento = sequelize.define('evento',
     {
         id: {type: Sequelize.INTEGER, autoIncrement: false, allowNull: false, primaryKey: true},
         pop_id: Sequelize.INTEGER,
