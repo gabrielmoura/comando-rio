@@ -23,7 +23,6 @@ export default class Api {
 
 
     async autorization() {
-
         if (!hasToken()) {
             await axios({
                 method: 'post',
@@ -34,8 +33,8 @@ export default class Api {
                     username: this.username,
                     password: this.password
                 }
-            },).then(r => {
-                setToken(r.data, hoursToSeconds(24) * 9);
+            }).then(r => {
+                setToken(r.data as string, hoursToSeconds(24) * 9);
                 this.token = r.data;
                 if (process.env.NODE_ENV !== "production") {
                     console.log(r);
@@ -43,17 +42,20 @@ export default class Api {
             }).catch(err => {
                 console.error(err);
             });
+        } else {
+            // Havendo Token definir na API.
+            this.token = await getToken();
         }
     }
 
     async getData(func) {
-        if (hasToken()) {
+        if (this.token) {
             axios({
                 method: 'get',
                 baseURL: this.baseURL,
                 url: `/statuscomando/v2/listarEventos`,
                 headers: {
-                    'Authorization': await getToken(),
+                    'Authorization': this.token,
                     'Content-Type': 'application/json'
                 },
                 data: {
@@ -72,13 +74,13 @@ export default class Api {
     }
 
     async getClose(func) {
-        if (hasToken()) {
+        if (this.token) {
             return axios({
                 method: 'get',
                 baseURL: this.baseURL,
                 url: `/statuscomando/v2/listarEventos`,
                 headers: {
-                    'Authorization': await getToken(),
+                    'Authorization': this.token,
                     'Content-Type': 'application/json'
                 },
                 data: {
@@ -91,13 +93,13 @@ export default class Api {
     }
 
     async getOpen(func) {
-        if (hasToken()) {
+        if (this.token) {
             return axios({
                 method: 'get',
                 baseURL: this.baseURL,
                 url: `/statuscomando/v2/listarEventosAbertos`,
                 headers: {
-                    'Authorization': await getToken(),
+                    'Authorization': this.token,
                     'Content-Type': 'application/json'
                 }
             })
@@ -106,13 +108,13 @@ export default class Api {
     }
 
     async getActivity(eventoId) {
-        if (hasToken()) {
+        if (this.token) {
             return axios({
                 method: 'get',
                 baseURL: this.baseURL,
                 url: `/statuscomando/v2/listarAtividadesDoEvento?eventoId=${eventoId}`,
                 headers: {
-                    'Authorization': await getToken(),
+                    'Authorization': this.token,
                     'Content-Type': 'application/json'
                 }
             })
