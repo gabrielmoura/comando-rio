@@ -2,8 +2,10 @@
 ## Ocorrências do Comando - Centro de Operações Rio
 
 ## Objetivo
-* Buscar informações de uma API a cada 28 e 58 minutos e atualiza o banco de dados.
-* Fazer uso de uma autenticação distribuida entre outras aplicações.
+* Buscar informações de uma API a cada 28 e 58 minutos 
+* Atualiza o banco de dados.
+* Escreve dados em um arquivo.
+* Faz uso de uma autenticação distribuida entre outras aplicações.
 
 ## 🛠 Tecnologias
 * [Node Cron](https://github.com/node-cron/node-cron)
