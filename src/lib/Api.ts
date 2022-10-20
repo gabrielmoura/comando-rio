@@ -23,7 +23,7 @@ export default class Api {
 
 
     async autorization() {
-        if (!hasToken()) {
+        if (!await hasToken()) {
             await axios({
                 method: 'post',
                 baseURL: this.baseURL,
