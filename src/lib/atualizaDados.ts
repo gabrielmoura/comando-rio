@@ -5,7 +5,7 @@ export default async (data) => {
     if (process.env.NODE_ENV !== "production") {
         console.log(data);
     }
-    if(isNaN(data.id)){
+    if(data.id===null||isNaN(data.id)){
         return null;
     }
 
