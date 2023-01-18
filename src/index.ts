@@ -3,5 +3,7 @@ import cron from 'node-cron';
 import buscaDados from './lib/buscaDados';
 
 console.log('Inicia Cron');
-cron.schedule('28,58 * * * *', buscaDados);
-// buscaDados();
+if(process.env.FORCE){
+ buscaDados();
+}
+cron.schedule('*/28 * * * *', buscaDados);

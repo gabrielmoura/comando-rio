@@ -5,6 +5,9 @@ export default async (data) => {
     if (process.env.NODE_ENV !== "production") {
         console.log(data);
     }
+    if(isNaN(data.id)){
+        return null;
+    }
 
     Evento.upsert({
         id: data.id,
@@ -22,6 +25,6 @@ export default async (data) => {
         longitude: data.longitude,
         status: data.status,
         tipo: data.tipo
-    }).then(r => console.log(`Atualizado ${r}`))
+    }).then(r => process.env.NODE_ENV !== 'production' && console.log(`Atualizado ${r}`))
         .catch(err => console.error(err))
 }

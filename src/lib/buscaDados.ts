@@ -7,7 +7,7 @@ export default async () => {
     await axios.get('https://api.dados.rio/v2/adm_cor_comando/ocorrencias', {
         params: {
             format: 'json',
-            inicio: '2022-11-01 00:00:01.0'//format(subDays(new Date(), 29), 'yyyy-MM-dd 00:00:00.0')
+            inicio: format(subDays(new Date(), 28), 'yyyy-MM-dd 00:00:00.0')
         }
     }).then(resp => {
         write(resp.data);
