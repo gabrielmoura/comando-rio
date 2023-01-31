@@ -1,6 +1,6 @@
 {
   "name": "comandorio",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Popular dados",
   "main": "index.js",
   "repository": "git@github.com:computeibrasil/comando.git",
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "dev": "nodemon src/index.js",
+    "dev": "sucrase-node src/index.js",
     "start": "node ./dist",
     "prod": "npm run build && npm run start"
   },

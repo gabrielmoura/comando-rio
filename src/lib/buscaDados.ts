@@ -10,15 +10,15 @@ export default async () => {
             inicio: format(subDays(new Date(), 28), 'yyyy-MM-dd 00:00:00.0')
         }
     }).then(resp => {
-        write(resp.data);
-        resp.data.eventos.map(evento => atualizaDados(evento));
+    //    write(resp.data);
+        resp.data.eventos.map(evento => atualizaDados(evento,'fechadas'));
     })
     await axios.get('https://api.dados.rio/v2/adm_cor_comando/ocorrencias_abertas', {
         params: {
             format: 'json'
         }
     }).then(resp => {
-        resp.data.eventos.map(evento => atualizaDados(evento));
+        resp.data.eventos.map(evento => atualizaDados(evento,   'abertas'));
     })
 
 }

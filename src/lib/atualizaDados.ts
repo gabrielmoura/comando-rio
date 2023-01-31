@@ -1,30 +1,36 @@
 import {pops} from "./normalize";
 import Evento from "../db/evento";
 
-export default async (data) => {
+export interface EventoType {
+    id: number;
+    pop_id: number;
+    pop: string;
+    bairro: string;
+    latitude: string;
+    inicio: string;
+    titulo: string;
+    fim: string;
+    prazo: string;
+    descricao?: string;
+    informe_id?: number;
+    gravidade: string;
+    longitude: string;
+    status: string;
+    tipo: string;
+}
+
+export default async (data: EventoType, status) => {
     if (process.env.NODE_ENV !== "production") {
         console.log(data);
     }
-    if(data.id===null||isNaN(data.id)){
+    if (data.id === null || isNaN(data.id)) {
         return null;
     }
 
     Evento.upsert({
-        id: data.id,
-        pop_id: data.pop_id,
+        ...data,
         pop: pops(data.pop_id),
-        bairro: data.bairro,
-        latitude: data.latitude,
-        inicio: data.inicio,
-        titulo: data.titulo,
-        fim: data.fim,
-        prazo: data.prazo,
-        descricao: data.descricao,
-        informe_id: data.informe_id,
-        gravidade: data.gravidade,
-        longitude: data.longitude,
-        status: data.status,
-        tipo: data.tipo
-    }).then(r => process.env.NODE_ENV !== 'production' && console.log(`Atualizado ${r}`))
+
+    }).then(r => process.env.NODE_ENV !== 'production' && console.log(`${status}:: Atualizado ${data.id}`, JSON.stringify(r)))
         .catch(err => console.error(err))
 }

@@ -4,6 +4,7 @@ import buscaDados from './lib/buscaDados';
 
 console.log('Inicia Cron');
 if(process.env.FORCE){
- buscaDados();
+ buscaDados()
+     .then(()=>console.log('Atualização Forçada: ',new Date().toString()));
 }
 cron.schedule('*/28 * * * *', buscaDados);
