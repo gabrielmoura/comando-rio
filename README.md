@@ -29,3 +29,32 @@ npm run prod
 # Executar em desenvolvimento
 npm run dev
 ```
+
+## Rodando a aplicação com Docker
+[![asciicast](https://asciinema.org/a/567257.svg)](https://asciinema.org/a/567257?t=11)
+
+```bash
+DOCKER_BUILDKIT=1 docker build -t <image_tag> .
+docker run -d --env-file .env <image_tag>
+```
+
+## Variaveis de Ambiente
+ 
+```dotenv
+NODE_ENV=production
+
+USERAPI=
+PASSAPI=
+
+APP_NAME=comando
+
+DB_HOST=ec2.compute-1.amazonaws.com
+DB_NAME=comando
+DB_USER=postgres
+DB_PASS=stronPassword
+DB_TABLE_EVENTO=evento_comando
+
+
+FORCE=false
+FILENAME=dump.json
+```
