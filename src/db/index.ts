@@ -11,6 +11,12 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
         min: 0,
         acquire: 60000,
         idle: 30000
+    },
+    dialectOptions: {
+        ssl: {
+            require: true, // This will help you. But you will see nwe error
+            rejectUnauthorized: false // This line will fix new error
+        }
     }
 });
 

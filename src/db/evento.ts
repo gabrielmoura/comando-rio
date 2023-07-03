@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 import sequelize from './index'
 
-const Evento = sequelize.define('evento',
+const Evento = sequelize.define(process.env.DB_TABLE_EVENTO??'evento',
     {
         id: {type: Sequelize.INTEGER, autoIncrement: false, allowNull: false, primaryKey: true},
         pop_id: Sequelize.INTEGER,

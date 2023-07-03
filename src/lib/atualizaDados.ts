@@ -32,5 +32,5 @@ export default async (data: EventoType, status) => {
         pop: pops(data.pop_id),
 
     }).then(r => process.env.NODE_ENV !== 'production' && console.log(`${status}:: Atualizado ${data.id}`, JSON.stringify(r)))
-        .catch(err => console.error(err))
+        .catch(console.error)
 }

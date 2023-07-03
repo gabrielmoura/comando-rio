@@ -7,11 +7,12 @@
   "author": "Gabriel Moura <gabriel.blx32@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node-cron": "^3.0.8",
     "sucrase": "^3.27.0"
   },
   "scripts": {
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "dev": "sucrase-node src/index.js",
+    "dev": "sucrase-node src/index.ts",
     "start": "node ./dist",
     "prod": "npm run build && npm run start"
   },
