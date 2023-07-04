@@ -2,8 +2,7 @@
  *  Copyright (c) Gabriel Moura  2022
  *  Email: gabriel.blx32@gmail.com
  */
-
-const axios = require('axios');
+import axios from 'axios';
 import {format, hoursToSeconds, subDays} from 'date-fns'
 import {getToken, hasToken, setToken} from './cache'
 

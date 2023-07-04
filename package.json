@@ -1,6 +1,6 @@
 {
   "name": "comandorio",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Popular dados",
   "main": "index.js",
   "repository": "git@github.com:computeibrasil/comando.git",
@@ -8,6 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node-cron": "^3.0.8",
+    "@types/sequelize": "^4.28.15",
     "sucrase": "^3.27.0"
   },
   "scripts": {
@@ -20,7 +21,6 @@
     "axios": "^0.27.2",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.1",
-    "ioredis": "^5.2.3",
     "node-cron": "^3.0.2",
     "pg": "^8.7.3",
     "sequelize": "^6.21.3"

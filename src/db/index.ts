@@ -1,9 +1,14 @@
-const Sequelize = require('sequelize');
+import {Sequelize} from 'sequelize';
 let logging = process.env.NODE_ENV !== 'production';
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+let database:string = process.env.DB_NAME??'postgres';
+let dbPort:number =parseInt(process.env.DB_PORT??'5432');
+let dbHost:string = process.env.DB_HOST??'localhost';
+let dbUser:string = process.env.DB_USER??'postgres'
+
+const sequelize = new Sequelize(database,dbUser,process.env.DB_PASS, {
     dialect: 'postgres',
     host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+    port: dbPort,
     timezone: '-03:00',
     logging,
     pool: {

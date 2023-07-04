@@ -35,7 +35,7 @@ npm run dev
 
 ```bash
 DOCKER_BUILDKIT=1 docker build -t <image_tag> .
-docker run -d --env-file .env <image_tag>
+docker run -d --restart on-failure --env-file .env <image_tag>
 ```
 
 ## Variaveis de Ambiente
