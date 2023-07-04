@@ -1,7 +1,7 @@
 {
   "name": "comandorio",
-  "version": "3.1.1",
-  "description": "Popular dados",
+  "version": "3.1.2",
+  "description": "Popular dados vindos de uma API e salvar no banco de dados.",
   "main": "index.js",
   "repository": "git@github.com:computeibrasil/comando.git",
   "author": "Gabriel Moura <gabriel.blx32@gmail.com>",
