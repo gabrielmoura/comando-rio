@@ -1,10 +1,10 @@
 import 'dotenv/config'
-import cron from 'node-cron';
+import {schedule} from 'node-cron';
 import buscaDados from './lib/buscaDados';
 
 console.log('Inicia Cron');
-if(process.env.FORCE==='true'){
- buscaDados()
-     .then(()=>console.log('Atualização Forçada: ',new Date().toString()));
+if (process.env.FORCE === 'true') {
+    buscaDados()
+        .then(() => console.log('Atualização Forçada: ', new Date().toString()));
 }
-cron.schedule('*/28 * * * *', buscaDados);
+schedule('*/28 * * * *', buscaDados);

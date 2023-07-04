@@ -1,18 +1,20 @@
 import {Sequelize} from 'sequelize';
-let logging = process.env.NODE_ENV !== 'production';
-let database:string = process.env.DB_NAME??'postgres';
-let dbPort:number =parseInt(process.env.DB_PORT??'5432');
-let dbHost:string = process.env.DB_HOST??'localhost';
-let dbUser:string = process.env.DB_USER??'postgres'
 
-const sequelize = new Sequelize(database,dbUser,process.env.DB_PASS, {
+let logging = process.env.NODE_ENV !== 'production';
+let database: string = process.env.DB_NAME ?? 'postgres';
+let dbPort: number = parseInt(process.env.DB_PORT ?? '5432');
+let dbHost: string = process.env.DB_HOST ?? 'localhost';
+let dbUser: string = process.env.DB_USER ?? 'postgres';
+let poolMax: number = parseInt(process.env.DB_POOL_MAX ?? '10');
+
+const sequelize = new Sequelize(database, dbUser, process.env.DB_PASS, {
     dialect: 'postgres',
-    host: process.env.DB_HOST,
+    host: dbHost,
     port: dbPort,
     timezone: '-03:00',
     logging,
     pool: {
-        max: 15,
+        max: poolMax,
         min: 0,
         acquire: 60000,
         idle: 30000
